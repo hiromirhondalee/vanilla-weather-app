@@ -12,34 +12,36 @@
     />
     <link rel="stylesheet" href="src/styles.css" />
     <title>Weather App</title>
+
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   </head>
   <body>
     <div class="container">
       <div class="weather-city-summary">
-      <h1 class="city-name">Tokyo</h1>
+      <h1 class="city-name" id="city"></h1>
       <ul class="summary">
-        <li>
-        Wed, 27 July 2022, 15:30
+        <li id="last-updated-date-time">
       </li>
-      <li>broken clouds</li>
+      <li class= "description" id="weather-description"></li>
     </ul>
 
-      <div class="icon-temp-conatiner">
-        <image src="images/cloudy.png" width="150px"></image> 
-        <div class="temperature">32 <span class="units"><a href="#" class="celsius-unit">°C</a> | <a href="#" class="fahreinheit-unit">°F</a></span></div>
+      <div class="icon-temp-container">
+        <image id="weather-icon-main" src="images/cloudy.png" width="150px"></image> 
+        <div class="temperature"><span id="current-temp"></span><span class="units"><a href="#" class="celsius-unit" id="celsius"> °C</a> | <a href="#" class="fahreinheit-unit" id="fahreinheit">°F</a></span></div>
     </div>
   <hr />
       <div class="row">
         <div class="col-6">
           <ul>
             <li class="label">💦 Humidity:</li>
-            <li class="measurement-data">69%</li>
+            <li class="measurement-data"><span id="humidity"></span>%</li>
           </ul>
         </div>
         <div class="col-6">
           <ul>
             <li class="label">💨 Wind:</li>
-            <li class="measurement-data">8 km/h</li>
+            <li class="measurement-data"><span id="wind"></span> km/h</li>
           </ul>
 
         </div>
@@ -55,6 +57,8 @@
         by Hiromi Rhondalee
       </small>
     </div>
+
+
     <script src="src/app.js"></script>
   </body>
 </html>
