@@ -13,13 +13,26 @@ a {
   text-decoration: none;
 }
 
+.search-engine-container {
+  border: 2px solid #888888;
+  border-radius: 20px;
+  display: block;
+  max-width: 500px;
+  margin: 10px auto;
+}
+
+.search-form {
+  margin: 20px;
+  max-width: 450px;
+}
+
 .weather-city-summary {
   border: 2px solid #888888;
   border-radius: 20px;
   display: block;
   font-size: 18px;
   max-width: 500px;
-  margin: 20px auto;
+  margin: 10px auto;
   padding: 15px;
   text-align: center;
 }

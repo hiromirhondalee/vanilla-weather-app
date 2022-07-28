@@ -39,6 +39,13 @@ function formatDate(timestamp) {
   return `${day}, ${currentDate} ${month} ${year}, ${hours}:${minutes}`;
 }
 
+function search(city) {
+  let apiKey = "b1710895b469eb434ca65896f4e0d1be";
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiURL).then(displayInfo);
+}
+
 function displayInfo(response) {
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
@@ -59,8 +66,13 @@ function displayInfo(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
-let apiKey = "b1710895b469eb434ca65896f4e0d1be";
-let cityName = "Tokyo";
-let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+function handleSearch(event) {
+  event.preventDefault();
 
-axios.get(apiURL).then(displayInfo);
+  let city = document.querySelector("#city-name-search").value;
+  search(city);
+}
+
+search("Tokyo");
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSearch);
