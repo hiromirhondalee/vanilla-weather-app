@@ -1,1 +1,52 @@
+ul {
+  color: #888888;
+  padding-left: 0;
+  list-style: none;
+}
 
+small {
+  display: block;
+  text-align: center;
+}
+
+.weather-city-summary {
+  border: 2px solid #888888;
+  border-radius: 20px;
+  display: block;
+  font-size: 18px;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 15px;
+  text-align: center;
+}
+
+.city-name {
+  color: #4d4949;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.icon-temp-conatiner {
+  margin-top: 25px;
+}
+
+.temperature {
+  font-size: 40px;
+  color: #4d4949;
+}
+
+.units {
+  font-size: 15px;
+  position: relative;
+  top: -17px;
+}
+
+.label {
+  font-size: 20px;
+  color: #4d4949;
+}
+
+.measurement-data {
+  font-size: 17px;
+}
