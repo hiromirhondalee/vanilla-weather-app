@@ -47,6 +47,7 @@ function search(city) {
 }
 
 function displayInfo(response) {
+  console.log(response);
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
 
@@ -64,6 +65,13 @@ function displayInfo(response) {
 
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
+
+  let iconId = response.data.weather[0].icon;
+  let iconElement = document.querySelector("#weather-icon-main");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconId}.png`
+  );
 }
 
 function handleSearch(event) {
