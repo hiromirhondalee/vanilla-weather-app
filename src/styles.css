@@ -76,3 +76,12 @@ a {
   margin-top: -90px;
   margin-bottom: -70px;
 }
+
+.active {
+  color: #4d4949;
+  cursor: default;
+}
+
+.active:hover {
+  color: #4d4949;
+}

@@ -47,7 +47,8 @@ function search(city) {
 }
 
 function displayInfo(response) {
-  console.log(response);
+  celsiusTemp = response.data.main.temp;
+
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
 
@@ -58,7 +59,7 @@ function displayInfo(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
 
   let temperatureElement = document.querySelector("#current-temp");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
 
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.main.humidity;
@@ -74,13 +75,49 @@ function displayInfo(response) {
   );
 }
 
+function celsiusUnitSelect() {
+  celsiusUnit.classList.add("active");
+  fahrenheitUnit.classList.remove("active");
+}
+
 function handleSearch(event) {
   event.preventDefault();
+
+  celsiusUnitSelect();
 
   let city = document.querySelector("#city-name-search").value;
   search(city);
 }
 
+function convertToFahrenheit(event) {
+  event.preventDefault();
+
+  let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = fahrenheitTemp;
+
+  celsiusUnit.classList.remove("active");
+  fahrenheitUnit.classList.add("active");
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+
+  celsiusUnitSelect();
+}
+
 search("Tokyo");
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearch);
+
+let celsiusTemp = null;
+
+let fahrenheitUnit = document.querySelector("#fahreinheit");
+fahrenheitUnit.addEventListener("click", convertToFahrenheit);
+
+let celsiusUnit = document.querySelector("#celsius");
+celsiusUnit.addEventListener("click", convertToCelsius);
