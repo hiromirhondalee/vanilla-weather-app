@@ -85,3 +85,35 @@ a {
 .active:hover {
   color: #4d4949;
 }
+
+.weather-forecast {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #888888;
+  border-radius: 20px;
+  max-width: 500px;
+}
+
+.forcast-day-group {
+  margin: 10px;
+  text-align: center;
+}
+
+.forecast-day {
+  font-size: 17px;
+  color: #4d4949;
+  font-weight: 800px;
+}
+
+.forecast-temperatures {
+  font-size: 15px;
+}
+
+.forecast-max-temperature {
+  color: #4d4949;
+  font-weight: bolder;
+}
+
+.forecast-min-temperature {
+  color: #888888;
+}
