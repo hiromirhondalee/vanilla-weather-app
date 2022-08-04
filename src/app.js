@@ -39,6 +39,31 @@ function formatDate(timestamp) {
   return `${day}, ${currentDate} ${month} ${year}, ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col-2 forcast-day-group">
+          <div class="forecast-day">Fri</div>
+          <div class="forecast-icon">
+            <image src="http://openweathermap.org/img/wn/01d.png"></image>
+          </div>
+          <div class="forecast-temperatures">
+            <span class="forecast-max-temperature">38°</span>
+            <span class="forecast-min-temperature">28°</span>
+          </div>
+        </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function search(city) {
   let apiKey = "b1710895b469eb434ca65896f4e0d1be";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -110,6 +135,7 @@ function convertToCelsius(event) {
 }
 
 search("Tokyo");
+displayForecast();
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearch);
